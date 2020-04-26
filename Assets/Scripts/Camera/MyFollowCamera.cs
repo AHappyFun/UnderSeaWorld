@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 跟随目标的Camera
-/// </summary>
 public class MyFollowCamera : MonoBehaviour
 {
-    public static MyFollowCamera Instance;
     public Transform Target;    //目标
 
     [SerializeField]private float m_CamMoveSpeed = 1f;
@@ -27,17 +23,10 @@ public class MyFollowCamera : MonoBehaviour
     [SerializeField]private float m_XRotateMin = -60f;   //沿X周最小角度
     [SerializeField]private bool m_LockCursor = false;   //锁定鼠标
 
-    [HideInInspector]
-    public GameObject LockTarget;
-
     private void Awake()
-    {       
-        Instance = this;
-    }
-
-    public void Init()
     {
         RefreshCursor();
+
         m_CamTrans = GetComponentInChildren<Camera>().transform;
         m_PivotTrans = m_CamTrans.parent;
 
@@ -46,27 +35,16 @@ public class MyFollowCamera : MonoBehaviour
         m_TransformRotation = transform.localRotation;
     }
 
-    public void Tick()
+    private void Update()
     {
-        if (!LockTarget)
-        {
-            HandleRotationMovement();
-        }
-      
-        RefreshCursor();  
+        HandleRotationMovement();
+
+        RefreshCursor();
     }
 
-    public void LateTick()
-    { 
+    private void LateUpdate()
+    {
         FollowTarget();
-        if (LockTarget)
-        {      
-            //m_CamTrans.LookAt(LockTarget.transform, Vector3.up);
-            Vector3 dir = LockTarget.transform.position - (Target.transform.position + new Vector3(0, 1, 0));
-            //Vector3 dir = LockTarget.transform.position - (transform.position);     
-            dir.y = 0;
-            transform.forward = dir.normalized;
-        }
     }
 
     void FollowTarget()
@@ -86,7 +64,7 @@ public class MyFollowCamera : MonoBehaviour
         m_LookAngle += x * m_TurnSpeed;
         m_TransformRotation = Quaternion.Euler(0f, m_LookAngle, 0f);
 
-        m_TiltAngle -= y * m_TurnSpeed;   //这里用减
+        m_TiltAngle -= y * m_TurnSpeed;   
         //沿X旋转角度进行Clamp限制
         m_TiltAngle = Mathf.Clamp(m_TiltAngle, m_XRotateMin, m_XRotateMax);
         m_PivotRotation = Quaternion.Euler(m_TiltAngle, m_PivotEulers.y, m_PivotEulers.z);
@@ -99,10 +77,5 @@ public class MyFollowCamera : MonoBehaviour
     {
         Cursor.lockState = m_LockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !m_LockCursor;
-    }
-
-    public void SetLockTarget(GameObject lockGo)
-    {
-        LockTarget = lockGo;
     }
 }
