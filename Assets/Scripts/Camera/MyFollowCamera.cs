@@ -53,7 +53,8 @@ public class MyFollowCamera : MonoBehaviour
         {
             return;
         }
-        transform.position = Vector3.Lerp(transform.position, Target.position, Time.deltaTime * m_CamMoveSpeed);
+        //transform.position = Vector3.Lerp(transform.position, Target.position, Time.deltaTime * m_CamMoveSpeed);
+        transform.position = Target.position;
     }
 
     void HandleRotationMovement()

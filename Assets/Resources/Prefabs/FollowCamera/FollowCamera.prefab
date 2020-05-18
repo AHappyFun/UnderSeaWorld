@@ -106,7 +106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -165,7 +165,6 @@ MonoBehaviour:
   m_XRotateMax: 80
   m_XRotateMin: -30
   m_LockCursor: 1
-  LockTarget: {fileID: 0}
 --- !u!1 &1189910518782001878
 GameObject:
   m_ObjectHideFlags: 0
