@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _DepthDistance: 600
-    - _DepthStart: 212.9
+    - _DepthDistance: 114.4
+    - _DepthStart: -81.8
     m_Colors:
-    - _FogColor: {r: 0.16353686, g: 0.3291357, b: 0.46226418, a: 0.6666667}
+    - _FogColor: {r: 0, g: 0.29516694, b: 0.49056602, a: 0.6666667}
