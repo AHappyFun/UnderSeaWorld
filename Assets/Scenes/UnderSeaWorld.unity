@@ -836,7 +836,7 @@ PrefabInstance:
     - target: {fileID: 1189910517487032972, guid: 5989cf52f36e4f14e92547c07302bb39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.44
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1189910517487032973, guid: 5989cf52f36e4f14e92547c07302bb39,
         type: 3}
@@ -1895,7 +1895,7 @@ MonoBehaviour:
   useRadialDistance: 1
   heightFog: 1
   height: 1
-  heightDensity: 0.001
+  heightDensity: 0.06
   startDistance: 20
   fogShader: {fileID: 4800000, guid: 918389a23695c474c8a224e1a2d40a36, type: 3}
 --- !u!114 &923313652
@@ -1928,7 +1928,7 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: f4aacd77c6bdc9c4985f88430bbb4b56, type: 2}
   fogColor: {r: 0, g: 0.29516694, b: 0.49056602, a: 0.6666667}
   DepthStart: -81.8
-  DepthDistance: 114.4
+  DepthDistance: 125.9
 --- !u!1001 &924347157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3088,7 +3088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524670759}
   m_LocalRotation: {x: -0.97197706, y: -0, z: -0, w: 0.23507595}
-  m_LocalPosition: {x: 18.7, y: 0.0000040458604, z: 16}
+  m_LocalPosition: {x: -2.2, y: 0.0000040458604, z: 16}
   m_LocalScale: {x: 10.926, y: 1, z: 5.6675}
   m_Children: []
   m_Father: {fileID: 0}
