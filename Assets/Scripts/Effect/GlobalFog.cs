@@ -42,6 +42,7 @@ namespace UnityStandardAssets.ImageEffects
 		{
             if (CheckResources()==false || (!distanceFog && !heightFog))
             {
+                Debug.Log("²»Ö§³Ö");
                 Graphics.Blit (source, destination);
                 return;
             }
