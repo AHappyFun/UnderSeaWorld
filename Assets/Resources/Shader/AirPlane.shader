@@ -11,10 +11,8 @@
 
         Pass
         {
-			ZTest LEqual
+			ZTest Less
 			ZWrite On
-			Blend One Zero
-
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
