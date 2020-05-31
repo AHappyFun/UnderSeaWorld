@@ -143,7 +143,7 @@ Material:
     - _SpecularHighlights: 1
     - _SquashAmount: 1
     - _SrcBlend: 1
-    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceIndirect: 0.27
     - _SubsurfaceKwToggle: 0
     - _Surface: 0
     - _TranslucencyViewDependency: 0.7

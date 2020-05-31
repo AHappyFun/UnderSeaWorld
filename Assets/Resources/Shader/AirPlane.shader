@@ -1,4 +1,7 @@
-﻿Shader "Env/AirPlane"
+﻿//飞机Shader
+//1.为什么Opaque的没写入深度图里？？？
+
+Shader "Env/AirPlane"
 {
     Properties
     {
@@ -11,7 +14,7 @@
 
         Pass
         {
-			ZTest Less
+			ZTest LEqual
 			ZWrite On
             CGPROGRAM
             #pragma vertex vert
