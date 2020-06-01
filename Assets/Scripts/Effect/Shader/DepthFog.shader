@@ -1,4 +1,4 @@
-﻿Shader "Postprocess/FogShader"
+﻿Shader "Effect/FogShader"
 {
 	Properties
 	{
@@ -14,6 +14,7 @@
 
 		Pass
 		{
+			Cull Off ZWrite Off ZTest Always
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
