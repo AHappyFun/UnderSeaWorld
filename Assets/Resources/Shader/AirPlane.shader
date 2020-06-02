@@ -79,7 +79,7 @@ Shader "UnderSea/AirPlane"
             #pragma vertex vert
             #pragma fragment frag
 
-			#pragma multi_compile_fwdadd   //保证光衰减了拿到的值也是正确的
+			#pragma multi_compile_fwdadd   
 
             #include "UnityCG.cginc"
 			#include "Lighting.cginc"
