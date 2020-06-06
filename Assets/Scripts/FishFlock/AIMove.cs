@@ -12,13 +12,13 @@ public class AIMove : MonoBehaviour {
     Vector3 m_WayPoint;
     Vector3 m_LastWayPoint = new Vector3(0f, 0f, 0f);
 
-    Animator m_Animator;
+    //Animator m_Animator;
     float m_Speed;
 
     private void Start()
     {
         m_AIManager = transform.parent.GetComponentInParent<AISpawner>();
-        m_Animator = GetComponent<Animator>();
+        //m_Animator = GetComponent<Animator>();
         SetUpNPC();
     }
     void SetUpNPC()
@@ -55,7 +55,7 @@ public class AIMove : MonoBehaviour {
         {
             m_LastWayPoint = m_WayPoint;
             m_Speed = Random.Range(start,end);
-            m_Animator.speed = m_Speed;
+            //m_Animator.speed = m_Speed;
             return true;
         }
     }

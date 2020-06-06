@@ -1,4 +1,6 @@
-﻿//飞机Shader
+﻿// Upgrade NOTE: replaced '_LightMatrix0' with 'unity_WorldToLight'
+
+//飞机Shader
 //1.为什么Opaque的没写入深度图里？？？
 // 居然就加一个Fallback "Legacy Shaders/VertexLit"就好了？？？为什么
 
@@ -129,11 +131,18 @@ Shader "UnderSea/AirPlane"
 
 
 				//光照衰减
-				#ifdef USING_DIRECTION_LIGHT
-					fixed atten = 1;
+				#ifdef USING_DIRECTIONAL_LIGHT
+					fixed atten = 1.0;
 				#else
-					float3 lightCoord = mul(unity_WorldToLight , float4(i.worldPos,1)).xyz;
-					fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+					#if defined (POINT)			
+						float3 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1)).xyz;
+						fixed atten = tex2D(_LightTexture0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+				#elif defined (SPOT)
+						float4 lightCoord = mul(unity_WorldToLight, float4(i.worldPos, 1));
+						fixed atten = (lightCoord.z > 0) * tex2D(_LightTexture0, lightCoord.xy / lightCoord.w + 0.5).w * tex2D(_LightTextureB0, dot(lightCoord, lightCoord).rr).UNITY_ATTEN_CHANNEL;
+					#else
+						fixed atten = 1.0;
+					#endif
 				#endif
 				
 				fixed3 phong = ambient + diffuse * atten;
