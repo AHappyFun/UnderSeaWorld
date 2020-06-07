@@ -62,7 +62,7 @@ Shader "UnderSea/Fish"
 				offset.yzw = float3(0.0, 0.0, 0.0);
 				offset.x = sin(_Time.y * _Frequency + (v.vertex.z) * _Size) * _SinMaxValue;
 
-                o.pos = UnityObjectToClipPos(v.vertex );
+                o.pos = UnityObjectToClipPos(v.vertex + offset);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.worldNormal = mul(v.normal, (float3x3)unity_WorldToObject);
                 return o;
