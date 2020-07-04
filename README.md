@@ -19,7 +19,13 @@ unity
 
 #### 2.鱼群和海草
 
-GPU实例化合批，使用支持GPUInstancing的Shader，在渲染大量同Mesh，同Material的对象时，使用GPU实例化合批。(GPU实例化不支持蒙皮渲染的物体，鱼的游动动画需要Shader模拟)
+GPU实例化合批，使用支持GPUInstancing的Shader，在渲染大量同Mesh，同Material的对象时，使用GPU实例化合批。
+
+(GPU实例化必须是同Mesh，同Material)
+
+(GPU实例化不支持蒙皮渲染，鱼的游动动画需要Shader模拟)
+
+(Forward渲染下，多灯光就无法实例化合批)
 
 #### 3.UI合批
 
