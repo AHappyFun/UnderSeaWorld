@@ -23,7 +23,9 @@
 			#pragma fragment frag
 			
 			#include "UnityCG.cginc"
-			#include "noiseSimplex.cginc"
+			//#include "noiseSimplex.cginc"
+			//#include "../../HLSL/noiseSimplex.cginc"
+
 			#define M_PI 3.1415926
 
 			uniform float _NoiseFrequency,_NoiseScale,_NoiseSpeed,_PixelOffset;
@@ -56,15 +58,16 @@
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.srcPos)).r) * _ProjectionParams.z;
-				depthValue = saturate((depthValue - _DepthStart) / _DepthDistance);
-
-				float3 spos = float3(i.srcPos.x, i.srcPos.y, 0) * _NoiseFrequency;
-				spos.z += _Time.x * _NoiseSpeed;
-				float noise = _NoiseScale * ((snoise(spos) + 1) / 2);
-				float4 noiseToDirection = float4(cos(noise * M_PI * 2), sin(noise * M_PI *2), 0 ,0);
-				fixed4 col = tex2Dproj(_MainTex , i.srcPos + (normalize( noiseToDirection) * _PixelOffset * depthValue));
-				return col;
+				//float depthValue = Linear01Depth(tex2Dproj(_CameraDepthTexture, UNITY_PROJ_COORD(i.srcPos)).r) * _ProjectionParams.z;
+				//depthValue = saturate((depthValue - _DepthStart) / _DepthDistance);
+				//
+				//float3 spos = float3(i.srcPos.x, i.srcPos.y, 0) * _NoiseFrequency;
+				//spos.z += _Time.x * _NoiseSpeed;
+				//float noise = _NoiseScale * ((snoise(spos) + 1) / 2);
+				//float4 noiseToDirection = float4(cos(noise * M_PI * 2), sin(noise * M_PI *2), 0 ,0);
+				//fixed4 col = tex2Dproj(_MainTex , i.srcPos + (normalize( noiseToDirection) * _PixelOffset * depthValue));
+				//return col;
+				return fixed4(1,1,1,1);
 			}
 			ENDCG
 		}

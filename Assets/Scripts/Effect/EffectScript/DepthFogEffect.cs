@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode, ImageEffectAllowedInSceneView]
-public class FogEffect : MonoBehaviour
+public class DepthFogEffect : MonoBehaviour
 {
     public Material mat;
     public Color fogColor;
